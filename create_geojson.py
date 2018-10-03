@@ -25,6 +25,8 @@ def to_geojson(row):
         'properties': {
             'value': row.value,
             'unit': row.unit.lower(),
+            'orig_value': row.orig_value,
+            'orig_unit': row.orig_unit,
             'observation_time': row.captured_time.isoformat(),
             'observation_timestamp': int("{:%s}".format(row.captured_time)),
             'location_name': row.location_name,
@@ -39,8 +41,13 @@ def to_geojson(row):
 
 def convert_units(row):
     row_dict = row.asDict()
+
+    # keep original value and units
+    row_dict['orig_value'] = row_dict['value']
+    row_dict['orig_unit'] = row_dict['unit']
+
     row_dict['unit'] = 'uSv'
-    
+
     # TODO: remove this shim?
     try:
         if row_dict['unit'].lower() == 'cpm':
