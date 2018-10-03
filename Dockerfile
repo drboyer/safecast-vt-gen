@@ -7,3 +7,4 @@ RUN cd /opt && \
     rm $SPARK_PACKAGE
 ENV PATH $PATH:/opt/spark-${SPARK_VERSION}-bin-hadoop2.7/bin
 WORKDIR /usr/local/src/spark
+ADD . /usr/local/src/spark

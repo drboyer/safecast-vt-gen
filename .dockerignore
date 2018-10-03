@@ -1,5 +1,7 @@
 data/
-
 # created by spark, may exist if using volumes
 metastore_db/
 derby.log
+
+Makefile
+Dockerfile
