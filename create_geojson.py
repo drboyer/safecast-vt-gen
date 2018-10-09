@@ -88,7 +88,7 @@ AND value >= 0
     geojson_rdd = converted_units_rdd.map(to_geojson)
     geojson_df = spark.createDataFrame(geojson_rdd, StringType())
     #geojson_df.write.mode('overwrite').text('/data/measurements-20180828-geojson-corr-units/')
-    geojson_df.write.text('/data/measurements-20180828-geojson-corr-units-1/')
+    geojson_df.write.text('/data/measurements-20180828-geojson/')
 
 if __name__ == '__main__':
     main()
