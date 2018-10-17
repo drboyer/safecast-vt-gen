@@ -9,7 +9,6 @@ CSV_SCHEMA = StructType([
     StructField('value', FloatType(), True),  # float type?
     StructField('unit', StringType(), True),
     StructField('location_name', StringType(), True),
-    # StructField('device_id', StringType(), True),
     StructField('device_id', IntegerType(), False),
     StructField('md5sum', StringType(), False),
     StructField('height', StringType(), True),
@@ -46,10 +45,9 @@ def convert_units(row):
     row_dict['orig_value'] = row_dict['value']
     row_dict['orig_unit'] = row_dict['unit']
 
-    row_dict['unit'] = 'uSv'
-
     # TODO: remove this shim?
     try:
+        # convert all units to usv
         if row_dict['unit'].lower() == 'cpm':
             # bGeigies
             if row_dict['device_id'] == None:
@@ -67,6 +65,7 @@ def convert_units(row):
         print(row_dict)
         raise e
 
+    row_dict['unit'] = 'uSv'
     return Row(**row_dict)
 
 def main():
