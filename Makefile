@@ -23,4 +23,4 @@ create-measurements-mbtiles:
 	@tippecanoe -o data/measurements-20180828.mbtiles -z 10 -as -P -l bgeigie-measurements data/measurements-20180828-geojson/*.txt
 
 create-mclean-mbtiles:
-	@tippecanoe -o data/mclean.mbtiles -z 10 -as -P -l bgeigie-measurements data/mclean-geojson/*.txt
+	@tippecanoe -o data/mclean.mbtiles -z 10 -as -P -l bgeigie-measurements data/mclean-geojson-1/*.txt
