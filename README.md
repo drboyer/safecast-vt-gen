@@ -21,6 +21,13 @@ TODO: add diagram
 Data is downloaded locally, ETL'd into a set of line-delimited GeoJSON files using Apache Spark running in
 a Docker container, then processed into a packaged set of vector tile (.mbtiles file) using [tippecanoe](https://github.com/mapbox/tippecanoe).
 
+## How to run
+If you make changes to either Spark job (.py files), you need to rebuild the Spark docker image by running `make docker-build`.
+
+There are currently two pipelines that exist:
+- raw measurements from the daily exports: `make render-measurements-geojson && make create-measurements-mbtiles`
+- "cleaned" data export: `make render-mclean-geojson && make create-mclean-mbtiles`
+
 ## Resources
 
 TODO: Add more
